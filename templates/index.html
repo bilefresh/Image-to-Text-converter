@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Image to Text Converter</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class = "container mt-3 mb-5">
+        <h1>Image to Text Converter</h1>
+		
+		<form method = "POST" enctype = "multipart/form-data">
+			<div class="custom-file mb-3">				
+					<input name="file" type="file" class="custom-file-input" id="file">
+					<label class="custom-file-label" for="customFile">Choose file</label>	
+			</div>
+			<select id="type" name = "type" class="custom-select">
+				<option value="Typed">Already Typed Text</option>
+				<option value="Handwritten">Handwritten Text</option>
+			</select> <br /><br />
+			<button type="Submit" class = "btn btn-success">Submit</button> <br />
+		</form>
+<br />
+   <h2><strong>How To Use Image to Text Converter </strong></h2>
+   <p> 1. Upload the image you want to convert to text. </p>
+   <p> 2. Select the type of image uploaded. </p>
+   <p> 3. Your extracted text would be downloaded automatically in .txt format </p>
+   <p> 4. Reload the page to convert another image</p>
+</div>
+<script>
+	// Add the following code if you want the name of the file appear on select
+	$(".custom-file-input").on("change", function() {
+	  var fileName = $(this).val().split("\\").pop();
+	  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+	});
+</script>
+</body>
+
+</html>
